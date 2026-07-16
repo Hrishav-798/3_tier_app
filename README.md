@@ -197,3 +197,8 @@ LibraryHub is a **3-tier containerized web application** that lets users manage 
    ```bash
    docker compose down -v
    ```
+
+### Screenshot
+
+<img width="1915" height="1080" alt="Screenshot from 2026-07-16 18-18-14" src="https://github.com/user-attachments/assets/1e86d1f9-a2f6-4729-99f5-5e68c70e9522" />
+
