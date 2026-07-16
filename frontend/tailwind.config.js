@@ -1,0 +1,21 @@
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        cream: "#fff9f0",
+        emerald: "#10b981",
+        powder: "#bae6fd",
+        coral: "#f87171",
+      },
+      boxShadow: {
+        neo: "4px 4px 0px 0px rgba(0,0,0,1)",
+        'neo-hover': "2px 2px 0px 0px rgba(0,0,0,1)",
+      }
+    },
+  },
+  plugins: [],
+}

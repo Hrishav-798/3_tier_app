@@ -1,0 +1,50 @@
+services:
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "8081:80"
+    networks:
+      - mynet
+    depends_on:
+      - backend
+  db:
+    image: postgres:17.0-alpine
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Secret123
+      - POSTGRES_DB=librarydb
+    ports:
+      - "5433:5432"
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - mynet
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  backend:
+    build: ./backend
+    container_name: backend
+    environment:
+      DB_USER: postgres
+      DB_HOST: db
+      DB_NAME: librarydb
+      DB_PASSWORD: Secret123
+      DB_PORT: 5432
+    ports:
+      - "5001:5000"
+    networks:
+      - mynet
+    depends_on:
+      db:
+        condition: service_healthy
+networks:
+    mynet:
+      driver: bridge
+volumes:
+    dbdata:
