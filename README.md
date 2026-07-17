@@ -139,7 +139,6 @@ LibraryHub is a **3-tier containerized web application** that lets users manage 
 | Variable | Value | Description |
 |----------|-------|-------------|
 | `POSTGRES_USER` | `postgres` | PostgreSQL superuser name |
-| `POSTGRES_PASSWORD` | `Secret123` | PostgreSQL superuser password |
 | `POSTGRES_DB` | `librarydb` | Database created on first startup |
 
 ### Backend Service (`backend`)
