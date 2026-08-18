@@ -47,6 +47,5 @@ coverage/
 .docker/
 docker-compose.override.yml
 
-# Serena AI agent local cache (already handled by .serena/.gitignore, but good to be safe)
-.serena/cache/
-.serena/project.local.yml
+# Serena AI assistant config (local tool — never commit)
+.serena/
